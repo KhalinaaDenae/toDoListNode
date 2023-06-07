@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+ 
+
+        <% if (kindOfDay === "saturday" || kindOfDay ==="Sunday") %>
+
+<div class="box" id="heading">
+    <h1>  <%= kindOfDay %> </h1> <!-- tells file to replace with variable , holds curretn date variable -->
+</div>
+
+<div class="box">
+        <!-- loop through array to display items -->
+     <% for ( let i = 0 ; i < newListItems.length ; i++ ) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p>   <%= newListItems[i]  %> </p>
+    
+    
+        <!-- the form is set to edit/ delete path , where i is th index of the item in the array -->
+           
+        <div class="edit-btns">
+        <form action="/edit/<%= i %>" method="get" class="edit-form">
+                <button type="submit" class="edit-button">Edit</button>
+              </form>
+              <form action="/delete/<%= i %>" method="post" class="delete-form">
+                <button type="submit" class="delete-button">Delete</button>
+              </form>
+            </div>
+
+
+        </div>
+        
+    <% } %>
+
+    <form action="/" method="post"> <!-- action goes to root route-->
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="button"> +  </button>
+    </form>
+
+</div>
+
+</body>
+</html>

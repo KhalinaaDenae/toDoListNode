@@ -1,0 +1,24 @@
+       <!-- the form is set to edit/ delete path , where i is th index of the item in the array -->
+      
+      <div class="edit-btns">
+       <form action="/edit/<%= i %>" method="get" class="edit-form">
+        <button type="submit" class="edit-button">Edit</button>
+      </form>
+      <form action="/delete/<%= i %>" method="post" class="delete-form">
+        <button type="submit" class="delete-button">Delete</button>
+      </form>
+    </div>
+
+</div>
+
+<% } %>
+
+<form action="/" method="post"> <!-- action goes to root route-->
+<input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+<button type="submit" name="button"> +  </button>
+</form>
+
+</div>
+
+</body>
+</html>
